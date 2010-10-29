@@ -37,14 +37,14 @@ while true
     
     text = html_decoder.decode(entry.text)
     translator_response = JSON.parse(RestClient.get('http://ajax.googleapis.com/ajax/services/language/translate', :params => { :v=>'1.0', :q => text, :langpair => '|en' } ))["responseData"]
-    translated_text = html_decoder.decode(translator_response["translatedText"])
-    language = translator_response["detectedSourceLanguage"]
-
-
-    text.gsub!(/(@[^\s]+)/, paint(:green, '\1'))
+    translated_text = html_decoder.decode(translator_response["translatedText"]) if translator_response
+    language = translator_response["detectedSourceLanguage"] if translator_response
+    
+    text.gsub!(/@[^\s]+/, paint(:green, '\0'))
+    text.gsub!(/https?:\/\/[^\s]+/, paint(:green, '\0'))
     
     puts paint(:red, '@' + entry.from_user) + "\t(#{time_posted})\t#{text}"
-    puts "\t\t\t (Translated from #{language}:\t" + paint(:blue, translated_text) + ")" unless language == 'en'
+    puts "\t\t\t (Translated from #{language}:\t" + paint(:blue, translated_text) + ")" if translator_response and language != 'en'
   end
   sleep 300
 end
