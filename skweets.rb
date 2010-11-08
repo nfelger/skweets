@@ -24,13 +24,15 @@ boring_patterns = [
   /^Check out this (upcoming|past).*http:\/\/l.songkick.com/
 ]
 html_decoder = HTMLEntities.new
-latest = nil
+latest_id_filename = File.join(File.dirname(__FILE__), 'latest_id')
+latest = (File.exists?(latest_id_filename) && IO.read(latest_id_filename).strip.to_i) || nil
 
 while true
   entries = Twitter::Search.new('songkick').since_id(latest)
   entries.to_a.reverse.each do |entry|
     latest = entry.id
-    
+    File.open(latest_id_filename, 'w') { |f| f.puts(latest) }    
+
     next if boring_patterns.any? { |pattern| entry.text =~ pattern }  
 
     time_posted = Time.parse(entry.created_at).strftime("%a, %d-%b-%Y %T")
