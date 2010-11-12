@@ -7,7 +7,7 @@ require 'restclient'
 def colors
   {
     :reset => "\033[m",
-    :red   => "\033[1;31m",
+    :red   => "\033[31m",
     :green => "\033[32m",
     :blue  => "\033[36m"
   }
