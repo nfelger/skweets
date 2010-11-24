@@ -26,8 +26,8 @@ def tweets
 
   latest = @redis.get("last_seen_id").to_i
 
-  search = Twitter::Search.new('songkick').per_page(100).since_id(latest)
-  entries = search.entries
+  search = Twitter::Search.new.q('songkick').per_page(100).since_id(latest)
+  entries = search.fetch.entries
   log("#{entries.size} new tweets")
   the_tweets = entries.reverse.map do |entry|
     latest = entry.id if entry.id > latest.to_i
