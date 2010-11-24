@@ -3,6 +3,7 @@ require 'json'
 require 'sinatra'
 require 'redis'
 require 'action_view'
+require 'active_support'
 
 helpers { include ActionView::Helpers::DateHelper }
 
@@ -21,7 +22,7 @@ def tweets
     map(&JSON.method(:parse)).
     select{|tweet| tweet["id"] > last_seen_id}
 
-  response.set_cookie("last_seen_tweet_id", tweets.map{|t| t["id"]}.max) unless tweets.empty?
+  response.set_cookie("last_seen_tweet_id", :value => tweets.map{|t| t["id"]}.max, :expires => 10.years.from_now) unless tweets.empty?
   tweets
 end
 
