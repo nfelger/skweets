@@ -65,6 +65,10 @@ def tweets
   end.compact.reverse
   @redis.set("last_seen_id", latest)
   the_tweets
+
+rescue Twitter::BadRequest => e
+  # Rate limit exceeded
+  sleep 6000
 end
 
 def resolve_link(url)
