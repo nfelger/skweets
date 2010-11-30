@@ -20,7 +20,8 @@ def tweets
   boring_patterns = [
     /^I(’m going| might go) to/,
     /^I was there:.*http:\/\/l.songkick.com/,
-    /^Check out this (upcoming|past).*http:\/\/l.songkick.com/
+    /^Check out this (upcoming|past).*http:\/\/l.songkick.com/,
+    /csrblast/i
   ]
   html_decoder = HTMLEntities.new
 
