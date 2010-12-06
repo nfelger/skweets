@@ -67,8 +67,7 @@ def tweets
   @redis.set("last_seen_id", latest)
   the_tweets
 
-rescue Twitter::BadRequest => e
-  # Rate limit exceeded
+rescue Twitter::BadRequest, Twitter::ServiceUnavailable => e
   sleep 6000
 end
 
