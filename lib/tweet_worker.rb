@@ -69,6 +69,7 @@ def tweets
 
 rescue Twitter::BadRequest, Twitter::ServiceUnavailable => e
   sleep 6000
+  []
 end
 
 def resolve_link(url)
