@@ -67,7 +67,7 @@ def tweets
   @redis.set("last_seen_id", latest)
   the_tweets
 
-rescue Twitter::BadRequest, Twitter::ServiceUnavailable, RestClient::RequestTimeout => e
+rescue Twitter::BadRequest, Twitter::ServiceUnavailable, RestClient::RequestTimeout, SocketError => e
   sleep 6000
   []
 end
