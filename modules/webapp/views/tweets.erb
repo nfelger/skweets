@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Tweets about Songkick</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="tweets.css">
+  </head>
+  <body>
+    <ul id="tweets">
+      <% tweets.each do |tweet| %>
+        <li class="tweet">
+          <% if tweet.has?(:profile_image_url) %>
+            <div class="image">
+              <img src="<%= tweet.profile_image_url %>">
+            </div>
+          <% end %>
+          <% title_attr = "title='from #{tweet.source_lang}: #{tweet.source_text}'" if tweet.has?(:translation) %>
+          <div class="tweet-content" <%= title_attr %>>
+            <p>
+              <span class="tweeter"><%= tweet.username %></span>
+              <span class="followers">
+                (<span class="followers_count"><%= tweet.user_followers_count %></span> followers)
+              </span>
+            </p>
+            <p>
+              <span class="message">
+                <%= tweet.marked_up_message do |link|
+                  "<a href='#{link.url}' target='_blank'>#{link.text}</a>"
+                end %>
+              </span>
+            </p>
+            <p>
+              <a href=<%= tweet.url %> class="time" target="_blank">
+                <%= time_ago_in_words(tweet.time_posted) + " ago" %>
+              </a>
+            </p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
