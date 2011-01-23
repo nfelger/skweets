@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Tweets about Songkick</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="stats.css" type="text/css">
+  </head>
+  <body>
+    <ul>
+      <% stats[:top_level_stats].each do |number, description| %>
+        <li><span class="huge-number"><%= number %></span><%= description %></li>
+      <% end %>
+    </ul>
+    <ul>
+      <% stats[:links].each do |link, count| %>
+        <li>
+          <ul class="link-row">
+            <li class="link"><a href="<%= link %>"><%= link %></a></li>
+            <li class="count">tweeted <%= count %> times</li>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
