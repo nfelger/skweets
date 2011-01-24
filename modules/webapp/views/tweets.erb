@@ -18,9 +18,11 @@
           <div class="tweet-content" <%= title_attr %>>
             <p>
               <span class="tweeter"><%= tweet.username %></span>
-              <span class="followers">
-                (<span class="followers_count"><%= tweet.user_followers_count %></span> followers)
-              </span>
+              <% if tweet.has?(:user_followers_count) %>
+                <span class="followers">
+                  (<span class="followers_count"><%= tweet.user_followers_count %></span> followers)
+                </span>
+              <% end %>
             </p>
             <p>
               <span class="message">
@@ -30,7 +32,7 @@
               </span>
             </p>
             <p>
-              <a href=<%= tweet.url %> class="time" target="_blank">
+              <a href=<%= "http://twitter.com/#!/#{tweet.username}/status/#{tweet.id}" %> class="time" target="_blank">
                 <%= time_ago_in_words(tweet.time_posted) + " ago" %>
               </a>
             </p>

@@ -1,5 +1,7 @@
 Given /^10 tweets have been processed$/ do
-  warn("You probably want to implement this step")
+  10.times do |n|
+    Tweet.create(:id => n, :time_posted => Time.now - n)
+  end
 end
 
 When /^I visit "([^\"]*)"$/ do |url|
