@@ -1,0 +1,1 @@
+Clean up redis after test runs.
