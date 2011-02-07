@@ -67,7 +67,7 @@ def tweets
   @redis.set("last_seen_id", latest)
   the_tweets
 
-rescue Twitter::InternalServerError, Twitter::BadGateway, Twitter::BadRequest, Twitter::ServiceUnavailable, RestClient::RequestTimeout, SocketError, OpenSSL::SSL::SSLError => e
+rescue Twitter::InternalServerError, Twitter::BadGateway, Twitter::BadRequest, Twitter::ServiceUnavailable, RestClient::RequestTimeout, SocketError, OpenSSL::SSL::SSLError, Errno::ECONNRESET => e
   sleep 6000
   []
 end
