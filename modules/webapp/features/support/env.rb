@@ -2,7 +2,7 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', '..', 'webapp.rb')
+require File.join(File.dirname(__FILE__), '../../webapp.rb')
 
 require 'capybara'
 require 'capybara/cucumber'
@@ -18,4 +18,11 @@ end
 
 World do
   SkweetsWorld.new
+end
+
+# Use a different database in cukes than when running in production mode.
+DataMapper.setup(:default, {:adapter  => "redis", :db => 1})
+# Clean up after test runs.
+After do
+  Tweet.destroy!
 end
