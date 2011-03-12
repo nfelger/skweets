@@ -1,4 +1,5 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'models', 'tweet.rb')
+require 'spec_helper'
+require File.join(File.dirname(__FILE__), '../../lib/models/tweet.rb')
 
 describe Tweet do
   subject { Tweet }
