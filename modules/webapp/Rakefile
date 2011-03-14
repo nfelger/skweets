@@ -15,3 +15,8 @@ Spec::Rake::SpecTask.new('specs') do |t|
 end
 
 task :default => [:specs, :features]
+
+desc "Start webapp"
+task :start do
+  exec("rackup config.ru")
+end
