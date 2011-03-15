@@ -1,4 +1,3 @@
-- Manage gems with bundler.
 - Port tweetagent over as module.
 - Port the whole view so it looks ok.
 - Split agent into individual idempotent modules.
@@ -9,3 +8,4 @@ Later, maybe:
 
 # done
 - Rake task to start app
+- Manage gems with bundler.
