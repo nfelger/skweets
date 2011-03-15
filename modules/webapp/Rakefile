@@ -2,16 +2,15 @@ require 'rubygems'
 require 'rake'
 require 'cucumber'
 require 'cucumber/rake/task'
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
 Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format pretty"
 end
 
 desc "Run all examples"
-Spec::Rake::SpecTask.new('specs') do |t|
-  t.spec_files = FileList['spec/**/*.rb']
-  t.spec_opts  = ['--color', '--format', 'nested']
+RSpec::Core::RakeTask.new(:specs) do |t|
+  t.rspec_opts  = ['--color', '--format', 'nested']
 end
 
 task :default => [:specs, :features]
