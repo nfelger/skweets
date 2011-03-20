@@ -7,5 +7,6 @@ Later, maybe:
 - Live updates with Faye
 
 # done
+- Make generator script to make modules
 - Rake task to start app
 - Manage gems with bundler.
