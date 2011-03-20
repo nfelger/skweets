@@ -1,3 +1,6 @@
+require 'rspec/core/rake_task'
+require File.expand_path(File.dirname(__FILE__) + '/lib/skweets.rb')
+
 # Every module has a start task.
 Dir['modules/*'].each do |module_dir|
   module_name = module_dir.split('/').last
@@ -9,7 +12,10 @@ Dir['modules/*'].each do |module_dir|
   end
 end
 
-
+desc "Run all examples"
+RSpec::Core::RakeTask.new(:specs) do |t|
+  t.rspec_opts  = ['--color', '--format', 'nested']
+end
 
 desc "Run tests in all projects."
 task :default do

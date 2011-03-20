@@ -21,7 +21,7 @@ World do
 end
 
 # Use a different database in cukes than when running in production mode.
-DataMapper.setup(:default, {:adapter  => "redis", :db => 1})
+# DataMapper.setup(:default, {:adapter  => "redis", :db => 1})
 # Clean up after test runs.
 After do
   Tweet.destroy!

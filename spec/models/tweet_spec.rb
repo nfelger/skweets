@@ -53,18 +53,3 @@ describe Tweet, :has? do
     end
   end
 end
-
-describe Tweet, :marked_up_message do
-  subject { Tweet.new(:message => "Breakfast is yummy") }
-
-  context "when the message contains no links" do
-    it "should return the message unmodified" do
-      message = subject.marked_up_message { |_| "LALALALA" }
-      message.should == "Breakfast is yummy"
-    end
-  end
-
-  context "when the message contains links" do
-    it { pending }
-  end
-end

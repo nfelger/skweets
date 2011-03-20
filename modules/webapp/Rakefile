@@ -1,19 +1,11 @@
-require 'rubygems'
-require 'rake'
 require 'cucumber'
 require 'cucumber/rake/task'
-require 'rspec/core/rake_task'
 
 Cucumber::Rake::Task.new(:features) do |t|
   t.cucumber_opts = "features --format pretty"
 end
 
-desc "Run all examples"
-RSpec::Core::RakeTask.new(:specs) do |t|
-  t.rspec_opts  = ['--color', '--format', 'nested']
-end
-
-task :default => [:specs, :features]
+task :default => [:features]
 
 desc "Start webapp"
 task :start do

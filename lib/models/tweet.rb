@@ -1,6 +1,8 @@
 require 'dm-core'
 require 'dm-redis-adapter'
 
+DataMapper.setup(:default, {:adapter  => "redis"})
+
 class Tweet
   include DataMapper::Resource
   property :id,                Integer, :key => true
@@ -8,6 +10,7 @@ class Tweet
   property :profile_image_url, String
   property :time_posted,       DateTime
   property :username,          String
+  property :follower_count,    Integer
 
   def has?(property)
     properties = self.class.properties.map(&:name)
