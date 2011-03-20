@@ -13,3 +13,7 @@ gem 'capybara'
 gem 'SystemTimer'
 gem 'dm-core'
 gem 'dm-redis-adapter'
+
+gem 'twitter'
+gem 'rest-client'
+gem 'htmlentities'
