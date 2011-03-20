@@ -18,6 +18,7 @@ Later, maybe:
 - Live updates with Faye
 
 # done
+- Port over tweet_agent for old master branch
 - Make generator script to make modules
 - Rake task to start app
 - Manage gems with bundler.
