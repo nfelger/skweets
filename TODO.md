@@ -1,5 +1,4 @@
 # Next
-- Port the whole view so it looks ok.
 
 # Unprioritised
 - Figure out using environments with shared Tweet lib
@@ -21,7 +20,8 @@
 - Live updates with Faye
 
 # Done
-- Port over tweet_agent for old master branch
-- Make generator script to make modules
-- Rake task to start app
 - Manage gems with bundler.
+- Rake task to start app
+- Make generator script to make modules
+- Port over tweet_agent for old master branch
+- Port the whole view so it looks ok.
