@@ -1,7 +1,9 @@
+# Next
+- Port the whole view so it looks ok.
+
+# Unprioritised
 - Figure out using environments with shared Tweet lib
 - Figure out a way to load shared lib (aka Tweet) that doesn't require loading from outside a module's directory tree.
-- Port tweetagent over as module.
-- Port the whole view so it looks ok.
 - Nicer translation mouse-overs
 - Factor out translation
 - Move img/tweet url construction into domain model
@@ -12,12 +14,13 @@
 - For any link, I want to see what people have said about it
 - Factor out link lookup
 - Factor out filtering
+- I want to filter spammy tweets directly from the interface
 
-Later, maybe:
+# Someday, maybe
 - EC2 deployment w/ puppet, mcollective
 - Live updates with Faye
 
-# done
+# Done
 - Port over tweet_agent for old master branch
 - Make generator script to make modules
 - Rake task to start app
