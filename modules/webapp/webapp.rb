@@ -10,6 +10,6 @@ class Skweets < Sinatra::Base
   helpers { include ActionView::Helpers::DateHelper }
 
   get '/' do
-    erb :tweets, :locals => {:tweets => Tweet.all}
+    erb :tweets, :locals => {:tweets => Tweet.all(:order => :id.desc)}
   end
 end
