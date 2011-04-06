@@ -1,4 +1,5 @@
 # Next
+- Migration script to copy old (pure json) data over to new model format.
 
 # Unprioritised
 - Figure out using environments with shared Tweet lib
