@@ -74,7 +74,7 @@ module Cistern
       end
       redis.set("last_seen_id", latest)
 
-    rescue Twitter::InternalServerError, Twitter::BadGateway, Twitter::BadRequest, Twitter::ServiceUnavailable, RestClient::RequestTimeout, SocketError, OpenSSL::SSL::SSLError, Errno::ECONNRESET, Errno::ETIMEDOUT => e
+    rescue => e
       sleep 6000
       []
     end
