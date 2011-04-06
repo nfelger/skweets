@@ -6,7 +6,7 @@ require 'restclient'
 require 'htmlentities'
 require File.expand_path(File.dirname(__FILE__) + '/../../../lib/skweets.rb')
 
-module FirehoseCoupling
+module Cistern
   class << self
     def run!
       while true
