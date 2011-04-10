@@ -57,7 +57,6 @@ module Cistern
           :tweeter => entry.from_user,
           :follower_count => Twitter.user(entry.from_user).followers_count,
           :time_posted => time_posted,
-          :tweet_url => "http://twitter.com/#!/#{entry.from_user}/status/#{entry.id}",
           :message => spice_up(text),
           :profile_image_url => entry.profile_image_url,
           :id => entry.id

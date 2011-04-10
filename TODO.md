@@ -11,7 +11,7 @@
 - I want to see which links have reached the most followers
 - I want to see which links have had the most retweets
 - For any link, I want to see what people have said about it
-- Factor out link lookup
+- Factor out url shortener resolution
 - Factor out filtering
 - I want to filter spammy tweets directly from the interface
 - Pagination & fade out read messages, not hide completely
