@@ -14,7 +14,7 @@
               <img src="<%= tweet.profile_image_url %>">
             </div>
           <% end %>
-          <% title_attr = "title='from #{tweet.source_lang}: #{tweet.source_text}'" if tweet.has?(:translation) %>
+          <% title_attr = "title='from #{tweet.translated_from}: #{tweet.translated_text}'" if tweet.has?(:translated_text) %>
           <div class="tweet-content" <%= title_attr %>>
             <p>
               <span class="tweeter"><%= tweet.username %></span>
@@ -32,7 +32,7 @@
               </span>
             </p>
             <p>
-              <a href=<%= tweet.url %> class="time" target="_blank">
+              <a href="<%= tweet.url %>" class="time" target="_blank" title="<%= tweet.time_posted.strftime("%c") %>">
                 <%= time_ago_in_words(tweet.time_posted) + " ago" %>
               </a>
             </p>

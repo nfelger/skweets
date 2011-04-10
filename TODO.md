@@ -15,6 +15,7 @@
 - Factor out filtering
 - I want to filter spammy tweets directly from the interface
 - Pagination & fade out read messages, not hide completely
+- Show country flags in mouse-over to indicate translation source language
 
 # Someday, maybe
 - EC2 deployment w/ puppet, mcollective
