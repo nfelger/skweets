@@ -11,7 +11,7 @@ module Cistern
     def run!
       while true
         each_tweet do |tweet|
-          Tweet.create!(
+          tweet = Tweet.new(
             :id                => tweet[:id],
             :message           => tweet[:message],
             :profile_image_url => tweet[:profile_image_url],
@@ -19,6 +19,8 @@ module Cistern
             :time_posted       => tweet[:time_posted],
             :username          => tweet[:tweeter]
           )
+          
+          tweet.save!
         end
         sleep 300
       end
@@ -99,7 +101,6 @@ module Cistern
 
     def spice_up(source_text)
       text = source_text.dup
-      # text.gsub!(/@[^\s]+/, paint(:green, '\0'))
       text.gsub!(/(https?:\/\/|www\.)[^\s]+/) do |url|
         resolved = resolve_link(url)
         stripped = strip_crap(resolved)

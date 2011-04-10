@@ -1,7 +1,7 @@
 # Next
-- Move img/tweet url construction into domain model
 
 # Unprioritised
+- Something something twitter streaming api eventmachine
 - Figure out using environments with shared Tweet lib
 - Figure out a way to load shared lib (aka Tweet) that doesn't require loading from outside a module's directory tree.
 - Nicer translation mouse-overs
@@ -28,3 +28,4 @@
 - Port over tweet_agent for old master branch
 - Port the whole view so it looks ok.
 - Migration script to copy old (pure json) data over to new model format.
+- Move tweet url construction into domain model
