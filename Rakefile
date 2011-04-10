@@ -13,12 +13,12 @@ end
 
 require 'rspec/core/rake_task'
 desc "Run all examples"
-RSpec::Core::RakeTask.new(:specs) do |t|
+RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts  = ['--color', '--format', 'nested']
 end
 
 desc "Run tests in all projects."
-task :default do
+task :default => :spec do
   Dir['modules/*'].each do |module_dir|
     exit(1) unless system("cd #{module_dir} && rake")
   end

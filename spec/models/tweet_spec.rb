@@ -55,4 +55,14 @@ describe Tweet do
     end
   end
 
+  describe '#url' do
+    before do
+      subject.username = 'dontblocktheeventloop'
+      subject.id       = 12345
+    end
+
+    it "should construct the url from its username and tweet id" do
+      subject.url.should == "http://twitter.com/#!/dontblocktheeventloop/status/12345"
+    end
+  end
 end

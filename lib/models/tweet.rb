@@ -23,4 +23,8 @@ class Tweet
   def marked_up_message
     message
   end
+
+  def url
+    "http://twitter.com/#!/#{username}/status/#{id}"
+  end
 end

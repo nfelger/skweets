@@ -32,7 +32,7 @@
               </span>
             </p>
             <p>
-              <a href=<%= "http://twitter.com/#!/#{tweet.username}/status/#{tweet.id}" %> class="time" target="_blank">
+              <a href=<%= tweet.url %> class="time" target="_blank">
                 <%= time_ago_in_words(tweet.time_posted) + " ago" %>
               </a>
             </p>

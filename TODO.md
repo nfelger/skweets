@@ -1,11 +1,11 @@
 # Next
+- Move img/tweet url construction into domain model
 
 # Unprioritised
 - Figure out using environments with shared Tweet lib
 - Figure out a way to load shared lib (aka Tweet) that doesn't require loading from outside a module's directory tree.
 - Nicer translation mouse-overs
 - Factor out translation
-- Move img/tweet url construction into domain model
 - Factor out getting follower counts
 - Make follower count differences visually more prominent
 - I want to see which links have reached the most followers
