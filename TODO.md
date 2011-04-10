@@ -1,5 +1,4 @@
 # Next
-- Migration script to copy old (pure json) data over to new model format.
 
 # Unprioritised
 - Figure out using environments with shared Tweet lib
@@ -15,10 +14,11 @@
 - Factor out link lookup
 - Factor out filtering
 - I want to filter spammy tweets directly from the interface
+- Pagination & fade out read messages, not hide completely
 
 # Someday, maybe
 - EC2 deployment w/ puppet, mcollective
-- Live updates with Faye
+- Live updates without reloading
 
 # Done
 - Manage gems with bundler.
@@ -26,3 +26,4 @@
 - Make generator script to make modules
 - Port over tweet_agent for old master branch
 - Port the whole view so it looks ok.
+- Migration script to copy old (pure json) data over to new model format.

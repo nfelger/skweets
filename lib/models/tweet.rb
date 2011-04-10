@@ -11,6 +11,8 @@ class Tweet
   property :time_posted,       DateTime
   property :username,          String
   property :follower_count,    Integer
+  property :translated_text,   String
+  property :translated_from,   String
 
   def has?(property)
     properties = self.class.properties.map(&:name)
