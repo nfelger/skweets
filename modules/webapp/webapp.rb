@@ -11,10 +11,10 @@ class Skweets < Sinatra::Base
 
   get '/' do
     tweets = Tweet.all(:order => :time_posted.desc, :limit => 100)
+    response.set_cookie("last_seen_tweet_id", :value => tweets.map{|t| t["id"]}.max, :expires => 10.years.from_now) unless tweets.empty?
     erb :tweets, :locals => {
       :tweets =>       tweets,
       :last_seen_id => request.cookies["last_seen_tweet_id"].to_i
     }
-    response.set_cookie("last_seen_tweet_id", :value => tweets.map{|t| t["id"]}.max, :expires => 10.years.from_now) unless tweets.empty?
   end
 end
