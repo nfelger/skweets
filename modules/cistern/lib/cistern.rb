@@ -8,6 +8,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../../../lib/skweets.rb')
 
 module Cistern
   class << self
+    def blocked_users
+      ['WhereToGoTonite']
+    end
+    
     def run!
       while true
         each_tweet do |tweet|
@@ -19,6 +23,8 @@ module Cistern
             :time_posted       => tweet[:time_posted],
             :username          => tweet[:tweeter]
           )
+          
+          next if blocked_users.include? tweet.username
           
           tweet.save!
         end
