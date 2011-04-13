@@ -1,5 +1,5 @@
 body {
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F80046), to(#CE0340), color-stop(.85, #9C2B65)); 
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F80046), to(#CE0340), color-stop(.85, #9C2B65));
 }
 
 #tweets {
@@ -14,6 +14,11 @@ body {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
   margin: 10px 15px;
   padding: 5px;
+}
+
+.tweet.seen {
+  background-color: #EDD;
+  color: grey;
 }
 
 .tweet:hover {

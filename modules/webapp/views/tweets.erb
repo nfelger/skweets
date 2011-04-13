@@ -8,7 +8,7 @@
   <body>
     <ul id="tweets">
       <% tweets.each do |tweet| %>
-        <li class="tweet">
+        <li class="tweet<%= ' seen' if tweet.id <= last_seen_id %>">
           <% if tweet.has?(:profile_image_url) %>
             <div class="image">
               <img src="<%= tweet.profile_image_url %>">
@@ -18,9 +18,9 @@
           <div class="tweet-content" <%= title_attr %>>
             <p>
               <span class="tweeter"><%= tweet.username %></span>
-              <% if tweet.has?(:user_followers_count) %>
+              <% if tweet.has?(:follower_count) %>
                 <span class="followers">
-                  (<span class="followers_count"><%= tweet.user_followers_count %></span> followers)
+                  (<span class="followers_count"><%= tweet.follower_count %></span> followers)
                 </span>
               <% end %>
             </p>
